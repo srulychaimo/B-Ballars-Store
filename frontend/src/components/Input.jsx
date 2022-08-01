@@ -4,10 +4,8 @@ const Input = ({ name, label, error, ...rest }) => {
   return (
     <FormGroup controlId={name} className="my-3">
       <FormLabel>{label}</FormLabel>
-      <FormControl {...rest} />
-      <FormControl.Feedback type={error && "invalid"}>
-        {error}
-      </FormControl.Feedback>
+      <FormControl {...rest} isInvalid={error} />
+      <FormControl.Feedback type="invalid">{error}</FormControl.Feedback>
     </FormGroup>
   );
 };
