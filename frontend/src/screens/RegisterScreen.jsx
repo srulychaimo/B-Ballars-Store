@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
@@ -10,14 +10,19 @@ import Message from "../components/Message";
 import { register } from "../actions/userActions";
 import validateFormikUsingJoi from "../utils/validateFormikUsingJoi";
 import Joi from "joi";
+import {
+  confirmPasswordError,
+  emailRegex,
+  emailRegexError,
+  passwordRegex,
+  passwordRegexError,
+} from "../utils/regex";
 
 const RegisterScreen = () => {
   const [searchParams] = useSearchParams();
   const redirect = searchParams.get("redirect")
     ? searchParams.get("redirect")
     : "/";
-
-  const [message, setMessage] = useState(null);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -43,32 +48,31 @@ const RegisterScreen = () => {
     validate: validateFormikUsingJoi({
       name: Joi.string().min(2).required().label("Name"),
       email: Joi.string()
-        .min(6)
         .email({ tlds: { allow: false } })
+        .regex(emailRegex)
+        .messages(emailRegexError)
         .required()
         .label("Email"),
       password: Joi.string()
         .min(6)
         .required()
-        .regex(
-          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d{4,})(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
-        )
+        .regex(passwordRegex)
+        .messages(passwordRegexError)
         .label("Password"),
-
-      confirmPassword: Joi.ref("password"),
+      confirmPassword: Joi.string()
+        .required()
+        .valid(Joi.ref("password"))
+        .messages(confirmPasswordError)
+        .label("Confirm Password"),
     }),
     onSubmit(values) {
-      if (form.values.password !== form.values.confirmPassword) {
-        setMessage("Password do not match");
-      } else {
-        dispatch(
-          register({
-            name: values.name,
-            email: values.email,
-            password: values.password,
-          })
-        );
-      }
+      dispatch(
+        register({
+          name: values.name,
+          email: values.email,
+          password: values.password,
+        })
+      );
     },
   });
 
@@ -77,10 +81,10 @@ const RegisterScreen = () => {
       <h1>Sign Up</h1>
 
       {loading && <Loader />}
-      {message && <Message variant="danger">{message}</Message>}
+
       {error && <Message variant="danger">{error}</Message>}
 
-      <Form onSubmit={form.handleSubmit}>
+      <Form noValidate autoComplete="off" onSubmit={form.handleSubmit}>
         <Input
           {...form.getFieldProps("name")}
           error={form.touched.name && form.errors.name}
@@ -97,8 +101,8 @@ const RegisterScreen = () => {
           {...form.getFieldProps("password")}
           error={form.touched.password && form.errors.password}
           label="Password"
-          type="password"
           placeholder="Enter Password"
+          type="password"
         />
         <Input
           {...form.getFieldProps("confirmPassword")}

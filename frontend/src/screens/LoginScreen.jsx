@@ -10,11 +10,17 @@ import Message from "../components/Message";
 import { login } from "../actions/userActions";
 import Joi from "joi";
 import validateFormikUsingJoi from "../utils/validateFormikUsingJoi";
+import {
+  emailRegex,
+  emailRegexError,
+  passwordRegex,
+  passwordRegexError,
+} from "../utils/regex";
 
 const LoginScreen = () => {
   const [searchParams] = useSearchParams();
   const redirect = searchParams.get("redirect")
-    ? searchParams.get("redirect")
+    ? `/${searchParams.get("redirect")}`
     : "/";
 
   const navigate = useNavigate();
@@ -36,16 +42,16 @@ const LoginScreen = () => {
     },
     validate: validateFormikUsingJoi({
       email: Joi.string()
-        .min(6)
         .email({ tlds: { allow: false } })
+        .regex(emailRegex)
+        .messages(emailRegexError)
         .required()
         .label("Email"),
       password: Joi.string()
         .min(6)
         .required()
-        .regex(
-          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d{4,})(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
-        )
+        .regex(passwordRegex)
+        .messages(passwordRegexError)
         .label("Password"),
     }),
     onSubmit(values) {

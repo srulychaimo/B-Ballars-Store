@@ -1,14 +1,24 @@
 import Joi from "joi";
+import {
+  emailRegex,
+  emailRegexError,
+  passwordRegex,
+  passwordRegexError,
+} from "../utils/regex.js";
 
 export const userLoginValidate = (userInput) => {
   const schema = Joi.object({
-    email: Joi.string().min(6).email().required(),
+    email: Joi.string()
+      .min(6)
+      .email()
+      .required()
+      .regex(emailRegex)
+      .messages(emailRegexError),
     password: Joi.string()
       .min(6)
       .required()
-      .regex(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d{4,})(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
-      ),
+      .regex(passwordRegex)
+      .messages(passwordRegexError),
   });
 
   return schema.validate(userInput);
@@ -17,13 +27,17 @@ export const userLoginValidate = (userInput) => {
 export const userRegisterValidate = (userInput) => {
   const schema = Joi.object({
     name: Joi.string().min(2).required(),
-    email: Joi.string().min(6).email().required(),
+    email: Joi.string()
+      .min(6)
+      .email()
+      .required()
+      .regex(emailRegex)
+      .messages(emailRegexError),
     password: Joi.string()
       .min(6)
       .required()
-      .regex(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d{4,})(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
-      ),
+      .regex(passwordRegex)
+      .messages(passwordRegexError),
   });
 
   return schema.validate(userInput);
