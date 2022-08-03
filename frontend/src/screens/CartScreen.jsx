@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, removeFromCart } from "../actions/cartActions";
+import { addToCart, removeFromCart } from "../store/actions/cartActions";
 import { useParams, useSearchParams, useNavigate } from "react-router-dom";
 import {
   Button,
@@ -28,7 +28,7 @@ const CartScreen = () => {
     if (id) {
       dispatch(addToCart(id, qty));
     }
-  }, []);
+  }, [dispatch, id, qty]);
 
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));

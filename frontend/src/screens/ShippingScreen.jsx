@@ -4,7 +4,7 @@ import FormContainer from "../components/FormContainer";
 import Input from "../components/Input";
 import CheckoutSteps from "../components/CheckoutSteps";
 import { useSelector, useDispatch } from "react-redux";
-import { saveShippingAddress } from "../actions/cartActions";
+import { saveShippingAddress } from "../store/actions/cartActions";
 import { useNavigate } from "react-router-dom";
 
 const ShippingScreen = () => {

@@ -1,4 +1,4 @@
-import httpService from "../services/httpService";
+import httpService from "../../services/httpService";
 
 import {
   PRODUCT_LIST_SUCCESS,

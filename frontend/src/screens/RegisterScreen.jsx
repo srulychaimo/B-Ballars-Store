@@ -7,7 +7,7 @@ import FormContainer from "../components/FormContainer";
 import Input from "../components/Input";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import { register } from "../actions/userActions";
+import { register } from "../store/actions/userActions";
 import validateFormikUsingJoi from "../utils/validateFormikUsingJoi";
 import Joi from "joi";
 import {
@@ -35,7 +35,7 @@ const RegisterScreen = () => {
     if (userInfo) {
       navigate(redirect);
     }
-  }, [redirect, userInfo]);
+  }, [redirect, userInfo, navigate]);
 
   const form = useFormik({
     validateOnMount: true,

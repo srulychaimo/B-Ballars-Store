@@ -6,8 +6,11 @@ import { useNavigate } from "react-router-dom";
 import Input from "../components/Input";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import { getUserDetails, updateUserProfile } from "../actions/userActions";
-import { USER_UPDATE_PROFILE_RESET } from "../constants/userConstants";
+import {
+  getUserDetails,
+  updateUserProfile,
+} from "../store/actions/userActions";
+import { USER_UPDATE_PROFILE_RESET } from "../store/constants/userConstants";
 import validateFormikUsingJoi from "../utils/validateFormikUsingJoi";
 import Joi from "joi";
 import {
@@ -26,24 +29,6 @@ const ProfileScreen = () => {
 
   const { loading, user, error } = useSelector((state) => state.userDetails);
   const { userInfo } = useSelector((state) => state.userLogin);
-
-  useEffect(() => {
-    if (!userInfo) {
-      navigate("/login");
-      return;
-    }
-    if (!user || !user.name) {
-      dispatch({ type: USER_UPDATE_PROFILE_RESET });
-      dispatch(getUserDetails("profile"));
-      return;
-    }
-    form.setValues({
-      name: user.name,
-      email: user.email,
-      password: "",
-      confirmPassword: "",
-    });
-  }, [userInfo, user]);
 
   const form = useFormik({
     validateOnMount: true,
@@ -88,6 +73,24 @@ const ProfileScreen = () => {
       setSuccess(true);
     },
   });
+
+  useEffect(() => {
+    if (!userInfo) {
+      navigate("/login");
+      return;
+    }
+    if (!user || !user.name) {
+      dispatch({ type: USER_UPDATE_PROFILE_RESET });
+      dispatch(getUserDetails("profile"));
+      return;
+    }
+    form.setValues({
+      name: user.name,
+      email: user.email,
+      password: "",
+      confirmPassword: "",
+    });
+  }, [userInfo, user, dispatch, form, navigate]);
 
   return (
     <Row>

@@ -13,7 +13,7 @@ import {
   USER_UPDATE_PROFILE_REQUEST,
   USER_UPDATE_PROFILE_SUCCESS,
 } from "../constants/userConstants";
-import httpService from "../services/httpService";
+import httpService from "../../services/httpService";
 
 export const login =
   ({ email, password }) =>
@@ -105,7 +105,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await httpService.get(`api/users/${id}`, config);
+    const { data } = await httpService.get(`/api/users/${id}`, config);
 
     dispatch({
       type: USER_DETAILS_SUCCESS,
@@ -138,7 +138,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await httpService.put("api/users/profile", user, config);
+    const { data } = await httpService.put("/api/users/profile", user, config);
 
     dispatch({
       type: USER_UPDATE_PROFILE_SUCCESS,

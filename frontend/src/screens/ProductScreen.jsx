@@ -12,7 +12,7 @@ import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import { listProductDetails } from "../actions/productActions";
+import { listProductDetails } from "../store/actions/productActions";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -30,7 +30,7 @@ const ProductScreen = () => {
 
   useEffect(() => {
     dispatch(listProductDetails(id));
-  }, []);
+  }, [dispatch, id]);
 
   const addToCartHandler = () => {
     navigate(`/cart/${id}?qty=${qty}`);
