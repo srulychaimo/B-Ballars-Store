@@ -1,0 +1,9 @@
+@local="http://localhost:4000"
+
+POST {{local}}/api/users/login
+Content-Type: application/json
+
+{
+  "email": "aidy@aidy.com",
+  "password": "123456Aa@"
+}

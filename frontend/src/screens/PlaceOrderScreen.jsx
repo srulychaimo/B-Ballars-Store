@@ -24,7 +24,6 @@ const PlaceOrderScreen = () => {
   const { itemsPrice, shippingPrice, taxPrice, totalPrice } = priceCalculation(
     cart.cartItems
   );
-
   const { order, success, error } = useSelector((state) => state.orderCreate);
 
   useEffect(() => {
@@ -39,10 +38,10 @@ const PlaceOrderScreen = () => {
         orderItems: cart.cartItems,
         shippingAddress: cart.shippingAddress,
         paymentMethod: cart.paymentMethod,
-        itemsPrice: cart.itemsPrice,
-        shippingPrice: cart.shippingPrice,
-        taxPrice: cart.taxPrice,
-        totalPrice: cart.totalPrice,
+        itemsPrice: itemsPrice,
+        shippingPrice: shippingPrice,
+        taxPrice: taxPrice,
+        totalPrice: totalPrice,
       })
     );
   };
