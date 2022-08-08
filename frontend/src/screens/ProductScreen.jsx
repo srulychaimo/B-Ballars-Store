@@ -19,14 +19,13 @@ import { useNavigate } from "react-router-dom";
 const ProductScreen = () => {
   const [qty, setQty] = useState(1);
 
-  const dispatch = useDispatch();
+  const { id } = useParams();
+  const navigate = useNavigate();
 
+  const dispatch = useDispatch();
   const { loading, error, product } = useSelector(
     (state) => state.productDetails
   );
-
-  const { id } = useParams();
-  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(listProductDetails(id));
