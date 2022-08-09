@@ -2,11 +2,9 @@ import { useFormik } from "formik";
 import { useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-
 import { Link, useNavigate, useParams } from "react-router-dom";
 import FormContainer from "../components/FormContainer";
 import Input from "../components/Input";
-
 import validateFormikUsingJoi from "../utils/validateFormikUsingJoi";
 import Joi from "joi";
 import { emailRegex, emailRegexError } from "../utils/regex";
@@ -18,7 +16,6 @@ import { USER_UPDATE_RESET } from "../store/constants/userConstants";
 const UserEditScreen = () => {
   const navigate = useNavigate();
   const { id: userId } = useParams();
-
   const dispatch = useDispatch();
   const { loading, error, user } = useSelector((state) => state.userDetails);
   const {
