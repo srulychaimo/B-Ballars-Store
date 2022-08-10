@@ -1,4 +1,5 @@
 import { useFormik } from "formik";
+import { useState } from "react";
 import { useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,6 +8,7 @@ import FormContainer from "../components/FormContainer";
 import Input from "../components/Input";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
+import httpService from "../services/httpService";
 import {
   listProductDetails,
   updateProduct,
@@ -17,6 +19,7 @@ const ProductEditScreen = () => {
   const navigate = useNavigate();
   const { id: productId } = useParams();
   const dispatch = useDispatch();
+  const [uploading, setUploading] = useState(false);
 
   const { loading, error, product } = useSelector(
     (state) => state.productDetails
@@ -39,7 +42,6 @@ const ProductEditScreen = () => {
       category: "",
       brand: "",
     },
-
     onSubmit(values) {
       dispatch(
         updateProduct({
@@ -70,6 +72,29 @@ const ProductEditScreen = () => {
       }
     }
   }, [dispatch, product, productId, successUpdate]);
+
+  const uploadFileHandler = async (e) => {
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append("image", file);
+    setUploading(true);
+
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      };
+
+      const { data } = await httpService.post("/api/upload", formData, config);
+
+      form.setValues({ image: data });
+      setUploading(false);
+    } catch (error) {
+      console.error(error);
+      setUploading(false);
+    }
+  };
 
   return (
     <>
@@ -106,6 +131,17 @@ const ProductEditScreen = () => {
               label="Image"
               placeholder="Enter Image url"
             />
+
+            <Form.Group
+              controlId="imageFile"
+              className="mb-3"
+              onChange={uploadFileHandler}
+            >
+              <Form.Label>Choose File</Form.Label>
+              <Form.Control type="file" />
+              {uploading && <Loader />}
+            </Form.Group>
+
             <Input
               {...form.getFieldProps("description")}
               label="Description"

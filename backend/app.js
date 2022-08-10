@@ -4,7 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import productsRouter from "./routes/productRoutes.js";
 import usersRouter from "./routes/userRoutes.js";
-import uploadRouter from "./routes/uploadRoutes";
+import uploadRouter from "./routes/uploadRoutes.js";
 import orderRouter from "./routes/orderRoutes.js";
 import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
 import connectDB from "./config/db.js";
@@ -26,7 +26,7 @@ app.get("/api/config/paypal", (req, res) => {
 });
 
 const __dirname = path.resolve();
-app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+app.use("/uploads", express.static(path.join(__dirname, "./uploads")));
 
 app.use(notFound);
 app.use(errorHandler);
