@@ -2,19 +2,31 @@ import { useFormik } from "formik";
 import { useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import FormContainer from "../components/FormContainer";
 import Input from "../components/Input";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import { listProductDetails } from "../store/actions/productActions";
+import {
+  listProductDetails,
+  updateProduct,
+} from "../store/actions/productActions";
+import { PRODUCT_UPDATE_RESET } from "../store/constants/productConstants";
 
 const ProductEditScreen = () => {
+  const navigate = useNavigate();
   const { id: productId } = useParams();
   const dispatch = useDispatch();
+
   const { loading, error, product } = useSelector(
     (state) => state.productDetails
   );
+
+  const {
+    loading: loadingUpdate,
+    error: errorUpdate,
+    success: successUpdate,
+  } = useSelector((state) => state.productUpdate);
 
   const form = useFormik({
     validateOnMount: true,
@@ -29,25 +41,35 @@ const ProductEditScreen = () => {
     },
 
     onSubmit(values) {
-      console.log(values);
+      dispatch(
+        updateProduct({
+          _id: productId,
+          ...values,
+        })
+      );
     },
   });
 
   useEffect(() => {
-    if (!product.name || product._id !== productId) {
-      dispatch(listProductDetails(productId));
+    if (successUpdate) {
+      dispatch({ type: PRODUCT_UPDATE_RESET });
+      navigate("/admin/productlist");
     } else {
-      form.setValues({
-        name: product.name,
-        price: product.price,
-        image: product.image,
-        description: product.description,
-        countInStock: product.countInStock,
-        category: product.category,
-        brand: product.brand,
-      });
+      if (!product.name || product._id !== productId) {
+        dispatch(listProductDetails(productId));
+      } else {
+        form.setValues({
+          name: product.name,
+          price: product.price,
+          image: product.image,
+          description: product.description,
+          countInStock: product.countInStock,
+          category: product.category,
+          brand: product.brand,
+        });
+      }
     }
-  }, [dispatch, product, productId]);
+  }, [dispatch, product, productId, successUpdate]);
 
   return (
     <>
@@ -57,6 +79,9 @@ const ProductEditScreen = () => {
 
       <FormContainer>
         <h1>Edit Product</h1>
+
+        {loadingUpdate && <Loader />}
+        {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
 
         {loading ? (
           <Loader />
