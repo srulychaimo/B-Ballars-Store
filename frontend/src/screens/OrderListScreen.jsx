@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteUser, listUsers } from "../store/actions/userActions";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import { Button, Table } from "react-bootstrap";
@@ -13,7 +12,6 @@ const OrderListScreen = () => {
   const dispatch = useDispatch();
   const { loading, error, orders } = useSelector((state) => state.orderList);
   const { userInfo } = useSelector((state) => state.userLogin);
-  console.log(orders);
 
   useEffect(() => {
     if (userInfo && userInfo.isAdmin) {

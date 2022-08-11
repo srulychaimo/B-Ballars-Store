@@ -88,7 +88,7 @@ const ProductEditScreen = () => {
 
       const { data } = await httpService.post("/api/upload", formData, config);
 
-      form.setValues({ image: data });
+      form.setValues({ ...form.values, image: data });
       setUploading(false);
     } catch (error) {
       console.error(error);
