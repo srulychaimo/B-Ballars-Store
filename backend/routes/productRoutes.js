@@ -3,6 +3,7 @@ const router = express.Router();
 
 import {
   createProduct,
+  createProductReview,
   deleteProduct,
   getProductById,
   getProducts,
@@ -11,6 +12,7 @@ import {
 import { admin, auth } from "../middleware/authMiddleware.js";
 
 router.route("/").get(getProducts).post(auth, admin, createProduct);
+router.route("/:id/reviews").post(auth, createProductReview);
 
 router
   .route("/:id")
