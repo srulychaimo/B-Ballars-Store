@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import { Button, Col, Form, Row, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Input from "../components/Input";
-import Loader from "../components/Loader";
-import Message from "../components/Message";
+import Input from "../common/Input";
+import Loader from "../common/Loader";
+import Message from "../common/Message";
 import {
   getUserDetails,
   updateUserProfile,

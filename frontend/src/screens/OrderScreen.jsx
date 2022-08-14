@@ -9,9 +9,9 @@ import {
 } from "react-bootstrap";
 import { PayPalButton } from "react-paypal-button-v2";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams, useNavigate } from "react-router-dom";
-import Loader from "../components/Loader";
-import Message from "../components/Message";
+import { Link, useParams } from "react-router-dom";
+import Loader from "../common/Loader";
+import Message from "../common/Message";
 import {
   deliverOrder,
   getOrderDetails,
@@ -28,7 +28,6 @@ import {
 const OrderScreen = () => {
   const [sdkReady, setSdkReady] = useState(false);
 
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const { id: orderId } = useParams();
@@ -50,9 +49,6 @@ const OrderScreen = () => {
   );
 
   useEffect(() => {
-    if (!userInfo) {
-      navigate("/login");
-    }
     const addPaypalScript = async () => {
       const { data: clientId } = await httpService.get("/api/config/paypal");
       const script = document.createElement("script");

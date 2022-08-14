@@ -17,6 +17,7 @@ import UserEditScreen from "./screens/UserEditScreen";
 import ProductListScreen from "./screens/ProductListScreen";
 import ProductEditScreen from "./screens/ProductEditScreen";
 import OrderListScreen from "./screens/OrderListScreen";
+import ProtectedRoute from "./common/ProtectedRoute";
 
 const App = () => {
   return (
@@ -27,27 +28,84 @@ const App = () => {
           <Container>
             <Routes>
               <Route path="/" element={<HomeScreen />} />
-              <Route path="/products/:id" element={<ProductScreen />} />
+              <Route path="/teams/:team/:id" element={<ProductScreen />} />
               <Route path="/cart" element={<CartScreen />} />
               <Route path="/cart/:id" element={<CartScreen />} />
               <Route path="/login" element={<LoginScreen />} />
               <Route path="/register" element={<RegisterScreen />} />
               <Route path="/profile" element={<ProfileScreen />} />
-              <Route path="/shipping" element={<ShippingScreen />} />
-              <Route path="/payment" element={<PaymentScreen />} />
-              <Route path="/placeorder" element={<PlaceOrderScreen />} />
-              <Route path="/order/:id" element={<OrderScreen />} />
-              <Route path="/admin/userlist" element={<UserListScreen />} />
-              <Route path="/admin/user/:id/edit" element={<UserEditScreen />} />
+              <Route
+                path="/shipping"
+                element={
+                  <ProtectedRoute>
+                    <ShippingScreen />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/payment"
+                element={
+                  <ProtectedRoute>
+                    <PaymentScreen />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/placeorder"
+                element={
+                  <ProtectedRoute>
+                    <PlaceOrderScreen />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/order/:id"
+                element={
+                  <ProtectedRoute>
+                    <OrderScreen />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/userlist"
+                element={
+                  <ProtectedRoute adminOnly>
+                    <UserListScreen />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/user/:id/edit"
+                element={
+                  <ProtectedRoute adminOnly>
+                    <UserEditScreen />
+                  </ProtectedRoute>
+                }
+              />
               <Route
                 path="/admin/productlist"
-                element={<ProductListScreen />}
+                element={
+                  <ProtectedRoute adminOnly>
+                    <ProductListScreen />
+                  </ProtectedRoute>
+                }
               />
               <Route
                 path="/admin/product/:id/edit"
-                element={<ProductEditScreen />}
+                element={
+                  <ProtectedRoute adminOnly>
+                    <ProductEditScreen />
+                  </ProtectedRoute>
+                }
               />
-              <Route path="/admin/orderlist" element={<OrderListScreen />} />
+              <Route
+                path="/admin/orderlist"
+                element={
+                  <ProtectedRoute adminOnly>
+                    <OrderListScreen />
+                  </ProtectedRoute>
+                }
+              />
             </Routes>
           </Container>
         </main>

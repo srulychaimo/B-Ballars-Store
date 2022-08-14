@@ -1,7 +1,7 @@
 import { Button, Form } from "react-bootstrap";
 import { useFormik } from "formik";
 import FormContainer from "../components/FormContainer";
-import Input from "../components/Input";
+import Input from "../common/Input";
 import CheckoutSteps from "../components/CheckoutSteps";
 import { useSelector, useDispatch } from "react-redux";
 import { saveShippingAddress } from "../store/actions/cartActions";
@@ -24,6 +24,7 @@ const ShippingScreen = () => {
       navigate("/payment");
     },
   });
+
   return (
     <FormContainer>
       <CheckoutSteps step1 step2 />

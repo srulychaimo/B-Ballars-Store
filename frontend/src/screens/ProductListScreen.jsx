@@ -5,8 +5,8 @@ import {
   deleteProduct,
   listProducts,
 } from "../store/actions/productActions";
-import Loader from "../components/Loader";
-import Message from "../components/Message";
+import Loader from "../common/Loader";
+import Message from "../common/Message";
 import { Button, Col, Row, Table } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { useNavigate } from "react-router-dom";
@@ -35,10 +35,6 @@ const ProductListScreen = () => {
 
   useEffect(() => {
     dispatch({ type: PRODUCT_CREATE_RESET });
-
-    if (!userInfo.isAdmin) {
-      navigate("/login");
-    }
 
     if (successCreate) {
       navigate(`/admin/product/${createdProduct._id}/edit`);

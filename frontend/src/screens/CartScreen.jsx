@@ -12,7 +12,7 @@ import {
   ListGroupItem,
   Row,
 } from "react-bootstrap";
-import Message from "../components/Message";
+import Message from "../common/Message";
 import { Link } from "react-router-dom";
 
 const CartScreen = () => {
@@ -35,7 +35,7 @@ const CartScreen = () => {
   };
 
   const checkoutHandler = () => {
-    navigate("/login?redirect=shipping");
+    navigate("/shipping");
   };
 
   return (
@@ -55,7 +55,9 @@ const CartScreen = () => {
                     <Image src={item.image} alt={item.name} fluid rounded />
                   </Col>
                   <Col md={3}>
-                    <Link to={`/products/${item.product}`}>{item.name}</Link>
+                    <Link to={`/teams/${item.team}/${item.product}`}>
+                      {item.name}
+                    </Link>
                   </Col>
                   <Col md={2}>${item.price}</Col>
                   <Col md={2}>

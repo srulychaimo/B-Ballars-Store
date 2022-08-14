@@ -4,12 +4,12 @@ import { Button, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import FormContainer from "../components/FormContainer";
-import Input from "../components/Input";
+import Input from "../common/Input";
 import validateFormikUsingJoi from "../utils/validateFormikUsingJoi";
 import Joi from "joi";
 import { emailRegex, emailRegexError } from "../utils/regex";
-import Loader from "../components/Loader";
-import Message from "../components/Message";
+import Loader from "../common/Loader";
+import Message from "../common/Message";
 import { getUserDetails, updateUser } from "../store/actions/userActions";
 import { USER_UPDATE_RESET } from "../store/constants/userConstants";
 

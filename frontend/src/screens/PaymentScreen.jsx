@@ -8,7 +8,6 @@ import {
 } from "react-bootstrap";
 import { useFormik } from "formik";
 import FormContainer from "../components/FormContainer";
-
 import CheckoutSteps from "../components/CheckoutSteps";
 import { useSelector, useDispatch } from "react-redux";
 import { savePaymentMethod } from "../store/actions/cartActions";
