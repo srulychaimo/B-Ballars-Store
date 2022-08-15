@@ -29,6 +29,11 @@ const App = () => {
             <Routes>
               <Route path="/" element={<HomeScreen />} />
               <Route path="/search/:keyword" element={<HomeScreen />} />
+              <Route path="/page/:pageNumber" element={<HomeScreen />} />
+              <Route
+                path="/search/:keyword/page/:pageNumber"
+                element={<HomeScreen />}
+              />
               <Route path="/teams/:team/:id" element={<ProductScreen />} />
               <Route path="/cart" element={<CartScreen />} />
               <Route path="/cart/:id" element={<CartScreen />} />
@@ -85,6 +90,14 @@ const App = () => {
               />
               <Route
                 path="/admin/productlist"
+                element={
+                  <ProtectedRoute adminOnly>
+                    <ProductListScreen />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/admin/productlist/:pageNumber"
                 element={
                   <ProtectedRoute adminOnly>
                     <ProductListScreen />

@@ -22,7 +22,7 @@ import {
 } from "../constants/productConstants";
 
 export const listProducts =
-  (keyword = "") =>
+  (keyword = "", pageNumber = "") =>
   async (dispatch) => {
     try {
       dispatch({
@@ -30,7 +30,7 @@ export const listProducts =
       });
 
       const { data } = await httpService.get(
-        `/api/products?keyword=${keyword}`
+        `/api/products?keyword=${keyword}&pageNumber=${pageNumber}`
       );
 
       dispatch({
