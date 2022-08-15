@@ -5,9 +5,10 @@ import { useEffect } from "react";
 import { listProducts } from "../store/actions/productActions";
 import Loader from "../common/Loader";
 import Message from "../common/Message";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Paginate from "../components/Paginate";
 import ProductCarousel from "../components/ProductCarousel";
+import Meta from "../common/Meta";
 
 const HomeScreen = () => {
   const { keyword, pageNumber = 1 } = useParams();
@@ -23,7 +24,14 @@ const HomeScreen = () => {
 
   return (
     <>
-      {!keyword && <ProductCarousel />}
+      <Meta />
+      {!keyword ? (
+        <ProductCarousel />
+      ) : (
+        <Link to="/" className="btn btn-light">
+          Go Back
+        </Link>
+      )}
       <h1>latest products</h1>
 
       {loading ? (

@@ -22,6 +22,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { PRODUCT_CREATE_REVIEW_RESET } from "../store/constants/productConstants";
+import Meta from "../common/Meta";
 
 const ProductScreen = () => {
   const [qty, setQty] = useState(1);
@@ -69,6 +70,7 @@ const ProductScreen = () => {
         <Message variant="danger">{error}</Message>
       ) : (
         <>
+          <Meta title={product.name} />
           <Link className="btn btn-light my-3" to="/">
             Go Back
           </Link>
