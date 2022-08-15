@@ -147,6 +147,7 @@ const OrderScreen = () => {
                             {item.name}
                           </Link>
                         </Col>
+                        <Col md={3}>Size: {item.size}</Col>
                         <Col md={4}>
                           {item.qty} * ${item.price} = {item.qty * item.price}
                         </Col>

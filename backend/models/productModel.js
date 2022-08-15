@@ -68,6 +68,7 @@ const productSchema = new mongoose.Schema(
       required: true,
       default: 0,
     },
+    sizes: [{ type: String, required: true }],
   },
   {
     timestamps: true,

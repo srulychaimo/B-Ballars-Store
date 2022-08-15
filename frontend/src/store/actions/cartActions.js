@@ -6,7 +6,7 @@ import {
   CART_SAVE_SHIPPING_ADDRESS,
 } from "../constants/cartConstants";
 
-export const addToCart = (id, qty) => async (dispatch, getState) => {
+export const addToCart = (id, qty, size) => async (dispatch, getState) => {
   const { data } = await httpService.get(`/api/products/${id}`);
 
   dispatch({
@@ -19,6 +19,7 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
       price: data.price,
       countInStock: data.countInStock,
       qty,
+      size,
     },
   });
 

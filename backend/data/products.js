@@ -12,6 +12,7 @@ const products = [
     countInStock: 20,
     rating: 0,
     numReviews: 0,
+    sizes: ["S", "M", "XL", "L"],
   },
   {
     name: "Kobe Bryant Alt Jersey",
@@ -26,6 +27,7 @@ const products = [
     countInStock: 5,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL"],
   },
   {
     name: "Michael Jordan Home Jersey",
@@ -40,6 +42,7 @@ const products = [
     countInStock: 15,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "XXL"],
   },
   {
     name: "Larry Bird Home Jersey",
@@ -54,6 +57,7 @@ const products = [
     countInStock: 25,
     rating: 0,
     numReviews: 0,
+    sizes: ["S", "M", "XL"],
   },
   {
     name: "Magic Johnson Home Jersey",
@@ -68,6 +72,7 @@ const products = [
     countInStock: 15,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL"],
   },
   {
     name: "LeBron James Home Jersey",
@@ -82,6 +87,7 @@ const products = [
     countInStock: 20,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S"],
   },
   {
     name: "Stephen Curry Home Jersey",
@@ -96,6 +102,7 @@ const products = [
     countInStock: 40,
     rating: 0,
     numReviews: 0,
+    sizes: ["S", "M", "XL", "L"],
   },
   {
     name: "Stephen Curry Alt Jersey",
@@ -110,6 +117,7 @@ const products = [
     countInStock: 25,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S"],
   },
   {
     name: "Klay Thompson Home Jersey",
@@ -124,6 +132,7 @@ const products = [
     countInStock: 30,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S", "XXL"],
   },
   {
     name: "Jordan Poole Home Jersey",
@@ -138,6 +147,7 @@ const products = [
     countInStock: 5,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S"],
   },
   {
     name: "Draymond Green Home Jersey",
@@ -152,6 +162,7 @@ const products = [
     countInStock: 10,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S"],
   },
   {
     name: "LeBron James Home Jersey",
@@ -166,6 +177,7 @@ const products = [
     countInStock: 30,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S"],
   },
   {
     name: "LeBron James Away Jersey",
@@ -180,6 +192,7 @@ const products = [
     countInStock: 15,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S"],
   },
   {
     name: "Anthony Davis Home Jersey",
@@ -194,6 +207,7 @@ const products = [
     countInStock: 10,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S"],
   },
   {
     name: "Russell Westbrook Home Jersey",
@@ -208,6 +222,7 @@ const products = [
     countInStock: 15,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S"],
   },
   {
     name: "Carmelo Anthony Alt Jersey",
@@ -222,6 +237,7 @@ const products = [
     countInStock: 30,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S"],
   },
   {
     name: "Jayson Tatum Home Jersey",
@@ -236,6 +252,7 @@ const products = [
     countInStock: 25,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S"],
   },
   {
     name: "Jayson Tatum Alt Jersey",
@@ -250,6 +267,7 @@ const products = [
     countInStock: 15,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S"],
   },
   {
     name: "Marcus Smart Home Jersey",
@@ -264,6 +282,7 @@ const products = [
     countInStock: 15,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S"],
   },
   {
     name: "Jaylen Brown Home Jersey",
@@ -278,6 +297,7 @@ const products = [
     countInStock: 13,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S"],
   },
   {
     name: "Grant Williams Home Jersey",
@@ -292,6 +312,7 @@ const products = [
     countInStock: 5,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S"],
   },
   {
     name: "Giannis Antetokounmpo Home Jersey",
@@ -306,6 +327,7 @@ const products = [
     countInStock: 30,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S"],
   },
   {
     name: "Giannis Antetokounmpo Alt Jersey",
@@ -320,6 +342,7 @@ const products = [
     countInStock: 20,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S"],
   },
   {
     name: "Jrue Holiday Home Jersey",
@@ -334,6 +357,7 @@ const products = [
     countInStock: 10,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S"],
   },
   {
     name: "Khris Middleton Home Jersey",
@@ -348,6 +372,7 @@ const products = [
     countInStock: 15,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S"],
   },
   {
     name: "Brook Lopez Home Jersey",
@@ -362,6 +387,7 @@ const products = [
     countInStock: 7,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S"],
   },
   {
     name: "Kevin Durant Home Jersey",
@@ -376,6 +402,7 @@ const products = [
     countInStock: 30,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S"],
   },
   {
     name: "Kyrie Irving Home Jersey",
@@ -390,6 +417,7 @@ const products = [
     countInStock: 30,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S"],
   },
   {
     name: "Blake Griffin Home Jersey",
@@ -404,6 +432,7 @@ const products = [
     countInStock: 15,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S", "XXL"],
   },
   {
     name: "Ben Simmons Home Jersey",
@@ -418,6 +447,7 @@ const products = [
     countInStock: 5,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S", "XXL"],
   },
   {
     name: "Seth Curry Home Jersey",
@@ -432,6 +462,7 @@ const products = [
     countInStock: 10,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S", "XXL"],
   },
   {
     name: "Ja Morant Home Jersey",
@@ -446,6 +477,7 @@ const products = [
     countInStock: 25,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S", "XXL"],
   },
   {
     name: "Jaren Jackson Home Jersey",
@@ -460,6 +492,7 @@ const products = [
     countInStock: 15,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S", "XXL"],
   },
   {
     name: "Jaren Jackson Alt Jersey",
@@ -474,6 +507,7 @@ const products = [
     countInStock: 10,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S", "XXL"],
   },
   {
     name: "Jake LaRavia Home Jersey",
@@ -488,6 +522,7 @@ const products = [
     countInStock: 10,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S", "XXL"],
   },
   {
     name: "Zaire Williams Home Jersey",
@@ -502,6 +537,7 @@ const products = [
     countInStock: 5,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S", "XXL"],
   },
   {
     name: "Luka Doncic Home Jersey",
@@ -516,6 +552,7 @@ const products = [
     countInStock: 10,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S", "XXL"],
   },
   {
     name: "Luka Doncic Alt Jersey",
@@ -530,6 +567,7 @@ const products = [
     countInStock: 35,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S", "XXL"],
   },
   {
     name: "Kristaps Porzingis Home Jersey",
@@ -544,6 +582,7 @@ const products = [
     countInStock: 27,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S", "XXL"],
   },
   {
     name: "Dorian Finney-Smith Home Jersey",
@@ -558,6 +597,7 @@ const products = [
     countInStock: 15,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S", "XXL"],
   },
   {
     name: "Spencer Dinwiddie Home Jersey",
@@ -572,6 +612,7 @@ const products = [
     countInStock: 15,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S", "XXL"],
   },
   {
     name: "Nikola Jokic Home Jersey",
@@ -586,6 +627,7 @@ const products = [
     countInStock: 30,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S", "XXL"],
   },
   {
     name: "Nikola Jokic Alt Jersey",
@@ -600,6 +642,7 @@ const products = [
     countInStock: 25,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S", "XXL"],
   },
   {
     name: "Jamal Murray Home Jersey",
@@ -614,6 +657,7 @@ const products = [
     countInStock: 20,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S", "XXL"],
   },
   {
     name: "Jeff Green Home Jersey",
@@ -628,6 +672,7 @@ const products = [
     countInStock: 15,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S", "XXL"],
   },
   {
     name: "Aaron Gordon Home Jersey",
@@ -642,6 +687,7 @@ const products = [
     countInStock: 7,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S", "XXL"],
   },
   {
     name: "Jimmy Butler Home Jersey",
@@ -656,6 +702,7 @@ const products = [
     countInStock: 20,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S", "XXL"],
   },
   {
     name: "Jimmy Butler Alt Jersey",
@@ -670,6 +717,7 @@ const products = [
     countInStock: 15,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S", "XXL"],
   },
   {
     name: "Tyler Herro Home Jersey",
@@ -684,6 +732,7 @@ const products = [
     countInStock: 25,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S", "XXL"],
   },
   {
     name: "Bam Adebayo Home Jersey",
@@ -698,6 +747,7 @@ const products = [
     countInStock: 25,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S", "XXL"],
   },
   {
     name: "Kyle Lowry Home Jersey",
@@ -712,6 +762,7 @@ const products = [
     countInStock: 15,
     rating: 0,
     numReviews: 0,
+    sizes: ["L", "M", "XL", "S", "XXL"],
   },
 ];
 

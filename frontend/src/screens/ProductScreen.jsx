@@ -23,9 +23,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { PRODUCT_CREATE_REVIEW_RESET } from "../store/constants/productConstants";
 import Meta from "../common/Meta";
+import { storeSizes } from "../utils/storeSizes";
 
 const ProductScreen = () => {
   const [qty, setQty] = useState(1);
+  const [size, setSize] = useState("");
 
   const { id } = useParams();
   const navigate = useNavigate();
@@ -59,7 +61,7 @@ const ProductScreen = () => {
   }, [dispatch, id, successProductReview]);
 
   const addToCartHandler = () => {
-    navigate(`/cart/${id}?qty=${qty}`);
+    navigate(`/cart/${id}?qty=${qty}&size=${size}`);
   };
 
   return (
@@ -138,12 +140,40 @@ const ProductScreen = () => {
                     </ListGroup.Item>
                   )}
 
+                  {product.sizes?.length > 0 && (
+                    <ListGroup.Item>
+                      <Row>
+                        <Col>Size</Col>
+                        <Col>
+                          <FormControl
+                            as="select"
+                            value={size}
+                            onChange={(e) => setSize(e.target.value)}
+                          >
+                            <option value=""></option>
+                            {storeSizes.map((selectSize) => (
+                              <option
+                                key={selectSize}
+                                value={selectSize}
+                                disabled={product.sizes.indexOf(selectSize) < 0}
+                              >
+                                {selectSize}
+                                {product.sizes.indexOf(selectSize) < 0 &&
+                                  " - Out of stock"}
+                              </option>
+                            ))}
+                          </FormControl>
+                        </Col>
+                      </Row>
+                    </ListGroup.Item>
+                  )}
+
                   <ListGroup.Item>
                     <Button
                       onClick={addToCartHandler}
                       className="btn-block"
                       type="button"
-                      disabled={product.countInStock === 0}
+                      disabled={product.countInStock === 0 || !size}
                     >
                       Add To Cart
                     </Button>

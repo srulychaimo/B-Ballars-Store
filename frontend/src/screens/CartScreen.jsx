@@ -20,15 +20,16 @@ const CartScreen = () => {
   const { id } = useParams();
   const [searchParams] = useSearchParams();
   const qty = searchParams.get("qty") ? Number(searchParams.get("qty")) : 1;
+  const size = searchParams.get("size") ? searchParams.get("size") : "";
 
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
 
   useEffect(() => {
     if (id) {
-      dispatch(addToCart(id, qty));
+      dispatch(addToCart(id, qty, size));
     }
-  }, [dispatch, id, qty]);
+  }, [dispatch, id, qty, size]);
 
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));

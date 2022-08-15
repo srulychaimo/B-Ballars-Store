@@ -17,8 +17,7 @@ h3 {
 }
 
 /* carousel */
-.carousel-item-next,
-.carousel-item-prev,
+
 .carousel-item.active {
   display: flex;
 }
@@ -36,7 +35,7 @@ h3 {
   padding: 30px;
   height: 300px;
   margin: 40px;
-  border-radius: 50%;
+  border-radius: 20%;
 }
 
 .carousel a {
