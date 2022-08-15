@@ -5,20 +5,24 @@ import { useEffect } from "react";
 import { listProducts } from "../store/actions/productActions";
 import Loader from "../common/Loader";
 import Message from "../common/Message";
+import { useParams } from "react-router-dom";
 
 const HomeScreen = () => {
+  const { keyword } = useParams();
+
   const dispatch = useDispatch();
   const { loading, error, products } = useSelector(
     (state) => state.productList
   );
 
   useEffect(() => {
-    dispatch(listProducts());
-  }, [dispatch]);
+    dispatch(listProducts(keyword));
+  }, [dispatch, keyword]);
 
   return (
     <>
       <h1>latest products</h1>
+
       {loading ? (
         <Loader />
       ) : error ? (
