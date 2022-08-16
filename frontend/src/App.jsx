@@ -18,6 +18,8 @@ import ProductListScreen from "./screens/ProductListScreen";
 import ProductEditScreen from "./screens/ProductEditScreen";
 import OrderListScreen from "./screens/OrderListScreen";
 import ProtectedRoute from "./common/ProtectedRoute";
+import AboutScreen from "./screens/AboutScreen";
+import TeamScreen from "./screens/TeamScreen";
 
 const App = () => {
   return (
@@ -28,6 +30,8 @@ const App = () => {
           <Container>
             <Routes>
               <Route path="/" element={<HomeScreen />} />
+              <Route path="/about" element={<AboutScreen />} />
+              <Route path="/teams/:team" element={<TeamScreen />} />
               <Route path="/search/:keyword" element={<HomeScreen />} />
               <Route path="/page/:pageNumber" element={<HomeScreen />} />
               <Route

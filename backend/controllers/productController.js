@@ -167,6 +167,20 @@ const getTopProducts = asyncHandler(async (req, res) => {
   res.send(products);
 });
 
+// @desc    Get products by team
+// @route   GET /api/products/teams/team
+// @access  public
+
+const getTeamProducts = asyncHandler(async (req, res) => {
+  const products = await Product.find({ team: req.params.team });
+
+  if (!products) {
+    res.status(400);
+    throw new Error("Products Not Found!");
+  }
+  res.send(products);
+});
+
 export {
   getProducts,
   getProductById,
@@ -175,4 +189,5 @@ export {
   updateProduct,
   createProductReview,
   getTopProducts,
+  getTeamProducts,
 };

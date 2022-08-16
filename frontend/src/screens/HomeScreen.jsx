@@ -1,4 +1,4 @@
-import { Col, Row } from "react-bootstrap";
+import { Col, Image, Row } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import Product from "../components/Product";
 import { useEffect } from "react";
@@ -26,7 +26,15 @@ const HomeScreen = () => {
     <>
       <Meta />
       {!keyword ? (
-        <ProductCarousel />
+        <>
+          <ProductCarousel />
+          <Image
+            src="https://store.nba.com/content/ws/all/c4d32bbb-2e16-439d-b5a8-40ae6607b11c__1600X617.jpg"
+            alt="main image"
+            className="mt-4"
+            fluid
+          ></Image>
+        </>
       ) : (
         <Link to="/" className="btn btn-light">
           Go Back

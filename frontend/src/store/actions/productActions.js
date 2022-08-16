@@ -22,6 +22,9 @@ import {
   PRODUCT_TOP_REQUEST,
   PRODUCT_TOP_SUCCESS,
   PRODUCT_TOP_FAIL,
+  PRODUCT_TEAM_REQUEST,
+  PRODUCT_TEAM_SUCCESS,
+  PRODUCT_TEAM_FAIL,
 } from "../constants/productConstants";
 
 export const listProducts =
@@ -228,6 +231,29 @@ export const listTopProducts = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: PRODUCT_TOP_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const teamProducts = (team) => async (dispatch) => {
+  try {
+    dispatch({
+      type: PRODUCT_TEAM_REQUEST,
+    });
+
+    const { data } = await httpService.get(`/api/products/teams/${team}`);
+
+    dispatch({
+      type: PRODUCT_TEAM_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: PRODUCT_TEAM_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
