@@ -1,4 +1,4 @@
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Container, Nav, NavDropdown, Badge } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../store/actions/userActions";
@@ -8,6 +8,7 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const { userInfo } = useSelector((state) => state.userLogin);
+  const { cartItems } = useSelector((state) => state.cart);
 
   const logoutHandler = () => {
     dispatch(logout());
@@ -25,6 +26,11 @@ const Header = () => {
             <SearchBox />
             <Nav className="ml-auto">
               <Nav.Link href="/cart">
+                {cartItems.length > 0 && (
+                  <Badge bg="danger" pill text="light">
+                    {cartItems.reduce((acc, item) => acc + item.qty, 0)}
+                  </Badge>
+                )}
                 <i className="fas fa-shopping-cart"></i> Cart
               </Nav.Link>
               {userInfo ? (

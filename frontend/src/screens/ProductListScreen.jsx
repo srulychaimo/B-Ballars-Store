@@ -95,8 +95,8 @@ const ProductListScreen = () => {
                 <th>ID</th>
                 <th>NAME</th>
                 <th>PRICE</th>
-                <th>CATEGORY</th>
-                <th>BRAND</th>
+                <th>SIZES</th>
+                <th>TEAM</th>
                 <th></th>
               </tr>
             </thead>
@@ -106,8 +106,9 @@ const ProductListScreen = () => {
                   <td>{product._id}</td>
                   <td>{product.name}</td>
                   <td>${product.price}</td>
-                  <td>{product.category}</td>
-                  <td>{product.brand}</td>
+
+                  <td>{product.sizes.join(" ")}</td>
+                  <td>{product.team}</td>
                   <td>
                     <LinkContainer to={`/admin/product/${product._id}/edit`}>
                       <Button variant="light" className="btn-sm">

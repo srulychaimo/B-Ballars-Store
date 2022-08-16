@@ -14,6 +14,7 @@ import {
   updateProduct,
 } from "../store/actions/productActions";
 import { PRODUCT_UPDATE_RESET } from "../store/constants/productConstants";
+import { teams } from "../utils/teams";
 
 const ProductEditScreen = () => {
   const navigate = useNavigate();
@@ -41,12 +42,15 @@ const ProductEditScreen = () => {
       countInStock: 0,
       category: "",
       brand: "",
+      team: "",
+      sizes: [],
     },
     onSubmit(values) {
       dispatch(
         updateProduct({
           _id: productId,
           ...values,
+          sizes: values.sizes.split(" ").filter(Boolean),
         })
       );
     },
@@ -68,6 +72,8 @@ const ProductEditScreen = () => {
           countInStock: product.countInStock,
           category: product.category,
           brand: product.brand,
+          team: product.team,
+          sizes: product.sizes.map((size) => size).join(" "),
         });
       }
     }
@@ -130,17 +136,52 @@ const ProductEditScreen = () => {
               {...form.getFieldProps("image")}
               label="Image"
               placeholder="Enter Image url"
+              addFormControl={
+                <Form.Group
+                  controlId="imageFile"
+                  className="mb-3"
+                  onChange={uploadFileHandler}
+                >
+                  <Form.Control type="file" />
+                  {uploading && <Loader />}
+                </Form.Group>
+              }
             />
 
-            <Form.Group
-              controlId="imageFile"
-              className="mb-3"
-              onChange={uploadFileHandler}
-            >
-              <Form.Label>Choose File</Form.Label>
-              <Form.Control type="file" />
-              {uploading && <Loader />}
+            <Form.Group controlId="team" className="my-3">
+              <Form.Label>Team</Form.Label>
+              <Form.Control as="select" {...form.getFieldProps("team")}>
+                <option value={product.team}>{product.team}</option>
+                {teams
+                  .filter((team) => team.id !== product.team)
+                  .map((team) => (
+                    <option key={team.id} value={team.id}>
+                      {team.id}
+                    </option>
+                  ))}
+              </Form.Control>
             </Form.Group>
+
+            {/* <Form.Group controlId="size" className="my-3">
+              <Form.Label>Size</Form.Label>
+              <Form.Control as="select" {...form.getFieldProps("size")}>
+                <option value={product.size}>{product.size}</option>
+                {storeSizes
+                  .filter((size) => size !== product.size)
+                  .map((size) => (
+                    <option key={size} value={size}>
+                      {size}
+                    </option>
+                  ))}
+              </Form.Control>
+
+            </Form.Group> */}
+
+            <Input
+              {...form.getFieldProps("sizes")}
+              label="Sizes"
+              placeholder="Enter Sizes | S | M | L | XL | XXL"
+            />
 
             <Input
               {...form.getFieldProps("description")}
