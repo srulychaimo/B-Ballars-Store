@@ -24,6 +24,7 @@ import {
   ORDER_DELIVER_RESET,
   ORDER_PAY_RESET,
 } from "../store/constants/orderConstants";
+import Meta from "../common/Meta";
 
 const OrderScreen = () => {
   const [sdkReady, setSdkReady] = useState(false);
@@ -89,6 +90,8 @@ const OrderScreen = () => {
     <Message variant="danger">{error}</Message>
   ) : (
     <>
+      <Meta title="Jersey Store - Order" />
+
       <h1>Order {order._id}</h1>
 
       <Row>
@@ -159,7 +162,7 @@ const OrderScreen = () => {
             </ListGroupItem>
           </ListGroup>
         </Col>
-        <Col md={4}>
+        <Col sm={12} md={8} lg={4}>
           <Card>
             <ListGroup variant="flush">
               <ListGroupItem>

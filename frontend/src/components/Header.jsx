@@ -1,9 +1,10 @@
-import { Navbar, Container, Nav, NavDropdown, Badge } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Badge } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../store/actions/userActions";
 import SearchBox from "./SearchBox";
 import { teams } from "../utils/teams";
+import "../style/header.css";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -19,17 +20,19 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
+      <Navbar bg="dark" variant="dark" expand="xl" collapseOnSelect>
         <LinkContainer to="/">
-          <Navbar.Brand>nba jersey store</Navbar.Brand>
+          <Navbar.Brand>B-Ballers Store</Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
-            <Nav.Link href="/about">About</Nav.Link>
-            <Nav.Link href="/teams/hardwood-classics">
-              Hardwood Classics
-            </Nav.Link>
+            <LinkContainer to="/about">
+              <Nav.Link>About</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/teams/hardwood-classics">
+              <Nav.Link>Hardwood Classics</Nav.Link>
+            </LinkContainer>
             <NavDropdown title="teams" id="teams">
               {filteredTeams.map((team) => (
                 <LinkContainer key={team.id} to={`/teams/${team.id}`}>
@@ -40,14 +43,21 @@ const Header = () => {
           </Nav>
           <SearchBox />
           <Nav className="ml-auto">
-            <Nav.Link href="/cart">
-              {cartItems.length > 0 && (
-                <Badge bg="danger" pill text="light">
-                  {cartItems.reduce((acc, item) => acc + item.qty, 0)}
-                </Badge>
-              )}
-              <i className="fas fa-shopping-cart"></i> Cart
-            </Nav.Link>
+            <LinkContainer to="/cart">
+              <Nav.Link className="cart-section">
+                {cartItems.length > 0 && (
+                  <Badge
+                    bg="danger"
+                    pill
+                    text="light"
+                    className="cart-num-items"
+                  >
+                    {cartItems.reduce((acc, item) => acc + item.qty, 0)}
+                  </Badge>
+                )}
+                <i className="fas fa-shopping-cart"></i> Cart
+              </Nav.Link>
+            </LinkContainer>
             {userInfo ? (
               <NavDropdown title={userInfo.name} id="username">
                 <LinkContainer to="/profile">

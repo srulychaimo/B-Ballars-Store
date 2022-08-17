@@ -34,10 +34,16 @@ h3 {
 .carousel img {
   padding: 30px;
   height: 300px;
-  margin: 40px;
+  margin: 60px auto 0 auto;
   border-radius: 20%;
 }
 
 .carousel a {
   margin: 0 auto;
+}
+
+.carousel button {
+  width: 25px;
+  border: 1px solid black;
+  margin: 15px 5px 10px 0;
 }

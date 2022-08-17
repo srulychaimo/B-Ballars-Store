@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { Form, Button, FormControl } from "react-bootstrap";
+import { Form, Button, FormControl, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const SearchBox = () => {
@@ -19,15 +19,20 @@ const SearchBox = () => {
   });
 
   return (
-    <Form onSubmit={form.handleSubmit} className="d-flex">
-      <FormControl
-        placeholder="Search Products..."
-        className="mr-sm-2 ml-sm-5"
-        {...form.getFieldProps("keyword")}
-      ></FormControl>
-      <Button type="submit" variant="outline-success" className="p-2">
-        Search
-      </Button>
+    <Form onSubmit={form.handleSubmit}>
+      <Row>
+        <Col xs={9} sm={8} md={6} xl={10} className="pr-0 pr-sm-2 pr-xl-0">
+          <FormControl
+            placeholder="Search Products..."
+            {...form.getFieldProps("keyword")}
+          ></FormControl>
+        </Col>
+        <Col xs={2} className="pl-0 pl-sm-2 pl-xl-0">
+          <Button type="submit" variant="outline-success" className="p-2">
+            Search
+          </Button>
+        </Col>
+      </Row>
     </Form>
   );
 };

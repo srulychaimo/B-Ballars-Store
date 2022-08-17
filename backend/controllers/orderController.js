@@ -113,6 +113,9 @@ const getMyOrders = asyncHandler(async (req, res) => {
 // @access  private/admin
 
 const getOrders = asyncHandler(async (req, res) => {
+  const pageSize = 10;
+  const page = Number(req.query.pageNumber) || 1;
+
   const orders = await Order.find({}).populate("user", "id name");
   res.send(orders);
 });

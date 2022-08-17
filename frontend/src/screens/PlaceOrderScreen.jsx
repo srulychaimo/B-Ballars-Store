@@ -14,6 +14,9 @@ import Message from "../common/Message";
 import { createOrder } from "../store/actions/orderActions";
 import { useEffect } from "react";
 import { priceCalculation } from "../store/calculatePrice/calculation";
+import { CART_RESET_ITEM } from "../store/constants/cartConstants";
+import { ORDER_CREATE_RESET } from "../store/constants/orderConstants";
+import Meta from "../common/Meta";
 
 const PlaceOrderScreen = () => {
   const dispatch = useDispatch();
@@ -29,8 +32,12 @@ const PlaceOrderScreen = () => {
   useEffect(() => {
     if (success) {
       navigate(`/order/${order._id}`);
+
+      dispatch({ type: CART_RESET_ITEM });
+      localStorage.removeItem("cartItems");
+      dispatch({ type: ORDER_CREATE_RESET });
     }
-  }, [success, navigate, order]);
+  }, [success, navigate, order, dispatch]);
 
   const placeOrderHandler = () => {
     dispatch(
@@ -48,6 +55,8 @@ const PlaceOrderScreen = () => {
 
   return (
     <>
+      <Meta title="Jersey Store - Placeorder" />
+
       <CheckoutSteps step1 step2 step3 step4 />
       <Row>
         <Col md={8}>

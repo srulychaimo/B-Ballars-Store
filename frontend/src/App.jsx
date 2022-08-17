@@ -20,6 +20,7 @@ import OrderListScreen from "./screens/OrderListScreen";
 import ProtectedRoute from "./common/ProtectedRoute";
 import AboutScreen from "./screens/AboutScreen";
 import TeamScreen from "./screens/TeamScreen";
+import NotFound from "./screens/NotFound";
 
 const App = () => {
   return (
@@ -124,6 +125,7 @@ const App = () => {
                   </ProtectedRoute>
                 }
               />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Container>
         </main>

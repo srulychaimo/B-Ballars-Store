@@ -17,6 +17,7 @@ import {
   passwordRegex,
   passwordRegexError,
 } from "../utils/regex";
+import Meta from "../common/Meta";
 
 const RegisterScreen = () => {
   const [searchParams] = useSearchParams();
@@ -77,60 +78,64 @@ const RegisterScreen = () => {
   });
 
   return (
-    <FormContainer>
-      <h1>Sign Up</h1>
+    <>
+      <Meta title="Jersey Store - Sign up" />
 
-      {loading && <Loader />}
+      <FormContainer>
+        <h1>Sign Up</h1>
 
-      {error && <Message variant="danger">{error}</Message>}
+        {loading && <Loader />}
 
-      <Form noValidate autoComplete="off" onSubmit={form.handleSubmit}>
-        <Input
-          {...form.getFieldProps("name")}
-          error={form.touched.name && form.errors.name}
-          label="Name"
-          placeholder="Enter Name"
-        />
-        <Input
-          {...form.getFieldProps("email")}
-          error={form.touched.email && form.errors.email}
-          label="Email Address"
-          placeholder="Enter Email Address"
-        />
-        <Input
-          {...form.getFieldProps("password")}
-          error={form.touched.password && form.errors.password}
-          label="Password"
-          placeholder="Enter Password"
-          type="password"
-        />
-        <Input
-          {...form.getFieldProps("confirmPassword")}
-          error={form.touched.confirmPassword && form.errors.confirmPassword}
-          label="Confirm Password"
-          type="password"
-          placeholder="Confirm Password"
-        />
+        {error && <Message variant="danger">{error}</Message>}
 
-        <Button
-          type="submit"
-          variant="primary"
-          className="my-3"
-          disabled={!form.isValid}
-        >
-          Register
-        </Button>
-      </Form>
+        <Form noValidate autoComplete="off" onSubmit={form.handleSubmit}>
+          <Input
+            {...form.getFieldProps("name")}
+            error={form.touched.name && form.errors.name}
+            label="Name"
+            placeholder="Enter Name"
+          />
+          <Input
+            {...form.getFieldProps("email")}
+            error={form.touched.email && form.errors.email}
+            label="Email Address"
+            placeholder="Enter Email Address"
+          />
+          <Input
+            {...form.getFieldProps("password")}
+            error={form.touched.password && form.errors.password}
+            label="Password"
+            placeholder="Enter Password"
+            type="password"
+          />
+          <Input
+            {...form.getFieldProps("confirmPassword")}
+            error={form.touched.confirmPassword && form.errors.confirmPassword}
+            label="Confirm Password"
+            type="password"
+            placeholder="Confirm Password"
+          />
 
-      <Row className="py-3">
-        <Col>
-          Have an account ?
-          <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>
-            Login
-          </Link>
-        </Col>
-      </Row>
-    </FormContainer>
+          <Button
+            type="submit"
+            variant="primary"
+            className="my-3"
+            disabled={!form.isValid}
+          >
+            Register
+          </Button>
+        </Form>
+
+        <Row className="py-3">
+          <Col>
+            Have an account ?
+            <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>
+              Login
+            </Link>
+          </Col>
+        </Row>
+      </FormContainer>
+    </>
   );
 };
 

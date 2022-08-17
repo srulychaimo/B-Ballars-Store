@@ -19,7 +19,6 @@ import {
   ORDER_PAY_SUCCESS,
 } from "../constants/orderConstants";
 import httpService from "../../services/httpService";
-import { CART_RESET_ITEM } from "../constants/cartConstants";
 
 export const createOrder = (order) => async (dispatch, getState) => {
   try {
@@ -42,11 +41,6 @@ export const createOrder = (order) => async (dispatch, getState) => {
     dispatch({
       type: ORDER_CREATE_SUCCESS,
       payload: data,
-    });
-    localStorage.removeItem("cartItems");
-
-    dispatch({
-      type: CART_RESET_ITEM,
     });
   } catch (error) {
     dispatch({

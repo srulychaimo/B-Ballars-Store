@@ -16,6 +16,7 @@ import {
   passwordRegex,
   passwordRegexError,
 } from "../utils/regex";
+import Meta from "../common/Meta";
 
 const LoginScreen = () => {
   const [searchParams] = useSearchParams();
@@ -60,46 +61,51 @@ const LoginScreen = () => {
   });
 
   return (
-    <FormContainer>
-      <h1>Sign In</h1>
+    <>
+      <Meta title="Jersey Store - Sign in" />
+      <FormContainer>
+        <h1>Sign In</h1>
 
-      {loading && <Loader />}
-      {error && <Message variant="danger">{error}</Message>}
+        {loading && <Loader />}
+        {error && <Message variant="danger">{error}</Message>}
 
-      <Form onSubmit={form.handleSubmit}>
-        <Input
-          {...form.getFieldProps("email")}
-          error={form.touched.email && form.errors.email}
-          label="Email Address"
-          placeholder="Enter Email"
-        />
-        <Input
-          {...form.getFieldProps("password")}
-          error={form.touched.password && form.errors.password}
-          label="Password"
-          type="password"
-          placeholder="Enter Password"
-        />
+        <Form onSubmit={form.handleSubmit}>
+          <Input
+            {...form.getFieldProps("email")}
+            error={form.touched.email && form.errors.email}
+            label="Email Address"
+            placeholder="Enter Email"
+          />
+          <Input
+            {...form.getFieldProps("password")}
+            error={form.touched.password && form.errors.password}
+            label="Password"
+            type="password"
+            placeholder="Enter Password"
+          />
 
-        <Button
-          type="submit"
-          variant="primary"
-          className="my-3"
-          disabled={!form.isValid}
-        >
-          Sign In
-        </Button>
-      </Form>
+          <Button
+            type="submit"
+            variant="primary"
+            className="my-3"
+            disabled={!form.isValid}
+          >
+            Sign In
+          </Button>
+        </Form>
 
-      <Row className="py-3">
-        <Col>
-          New Customer ?{" "}
-          <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>
-            Create a new account
-          </Link>
-        </Col>
-      </Row>
-    </FormContainer>
+        <Row className="py-3">
+          <Col>
+            New Customer ?{" "}
+            <Link
+              to={redirect ? `/register?redirect=${redirect}` : "/register"}
+            >
+              Create a new account
+            </Link>
+          </Col>
+        </Row>
+      </FormContainer>
+    </>
   );
 };
 

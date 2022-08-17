@@ -77,7 +77,7 @@ const ProductEditScreen = () => {
         });
       }
     }
-  }, [dispatch, product, productId, successUpdate]);
+  }, [dispatch, product, productId, successUpdate, navigate]);
 
   const uploadFileHandler = async (e) => {
     const file = e.target.files[0];
@@ -161,21 +161,6 @@ const ProductEditScreen = () => {
                   ))}
               </Form.Control>
             </Form.Group>
-
-            {/* <Form.Group controlId="size" className="my-3">
-              <Form.Label>Size</Form.Label>
-              <Form.Control as="select" {...form.getFieldProps("size")}>
-                <option value={product.size}>{product.size}</option>
-                {storeSizes
-                  .filter((size) => size !== product.size)
-                  .map((size) => (
-                    <option key={size} value={size}>
-                      {size}
-                    </option>
-                  ))}
-              </Form.Control>
-
-            </Form.Group> */}
 
             <Input
               {...form.getFieldProps("sizes")}

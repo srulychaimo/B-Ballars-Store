@@ -20,34 +20,39 @@ const HomeScreen = () => {
 
   useEffect(() => {
     dispatch(listProducts(keyword, pageNumber));
+    if (pageNumber !== 1) {
+      window.scrollTo(0, 940);
+    }
   }, [dispatch, keyword, pageNumber]);
 
   return (
     <>
-      <Meta />
+      <Meta title="Jersey Store - Home" />
       {!keyword ? (
         <>
           <ProductCarousel />
-          <Image
-            src="https://store.nba.com/content/ws/all/c4d32bbb-2e16-439d-b5a8-40ae6607b11c__1600X617.jpg"
-            alt="main image"
-            className="mt-4"
-            fluid
-          ></Image>
+          <Link to="teams/hardwood-classics">
+            <Image
+              src="https://store.nba.com/content/ws/all/c4d32bbb-2e16-439d-b5a8-40ae6607b11c__1600X617.jpg"
+              alt="main image"
+              className="mt-4"
+              fluid
+            />
+          </Link>
         </>
       ) : (
         <Link to="/" className="btn btn-light">
           Go Back
         </Link>
       )}
-      <h1>latest products</h1>
 
       {loading ? (
         <Loader />
       ) : error ? (
         <Message variant="danger">{error}</Message>
-      ) : (
+      ) : products.length ? (
         <>
+          <h1>latest products</h1>
           <Row>
             {products.map((product) => (
               <Col sm={12} md={6} lg={4} xl={3} key={product._id}>
@@ -61,6 +66,8 @@ const HomeScreen = () => {
             keyword={keyword ? keyword : ""}
           />
         </>
+      ) : (
+        <Message variant="danger">Products not found</Message>
       )}
     </>
   );
