@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://b-ballers.herokuapp.com/";
+axios.defaults.baseURL = "https://b-ballers.herokuapp.com";
 axios.defaults.headers.post["Content-Type"] = "application/json";
 axios.defaults.headers.put["Content-Type"] = "application/json";
 
