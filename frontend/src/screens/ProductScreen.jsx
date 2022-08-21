@@ -8,6 +8,7 @@ import {
   FormControl,
   ListGroupItem,
   Form,
+  Container,
 } from "react-bootstrap";
 import Rating from "../components/Rating";
 import { useFormik } from "formik";
@@ -65,7 +66,7 @@ const ProductScreen = () => {
   };
 
   return (
-    <>
+    <Container>
       {loading ? (
         <Loader />
       ) : error ? (
@@ -239,7 +240,7 @@ const ProductScreen = () => {
           </Row>
         </>
       )}
-    </>
+    </Container>
   );
 };
 

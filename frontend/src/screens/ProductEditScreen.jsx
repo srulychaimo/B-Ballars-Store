@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Container, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import FormContainer from "../components/FormContainer";
@@ -103,7 +103,7 @@ const ProductEditScreen = () => {
   };
 
   return (
-    <>
+    <Container>
       <Link to="/admin/productlist" className="btn btn-light my-3">
         Go Back
       </Link>
@@ -198,7 +198,7 @@ const ProductEditScreen = () => {
           </Form>
         )}
       </FormContainer>
-    </>
+    </Container>
   );
 };
 

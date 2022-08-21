@@ -19,7 +19,7 @@ const SearchBox = () => {
   });
 
   return (
-    <Form onSubmit={form.handleSubmit}>
+    <Form onSubmit={form.handleSubmit} onChange={form.handleSubmit}>
       <Row>
         <Col xs={9} sm={8} md={6} xl={10} className="pr-0 pr-sm-2 pr-xl-0">
           <FormControl

@@ -7,7 +7,7 @@ import {
 } from "../store/actions/productActions";
 import Loader from "../common/Loader";
 import Message from "../common/Message";
-import { Button, Col, Row, Table } from "react-bootstrap";
+import { Button, Col, Container, Row, Table } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { PRODUCT_CREATE_RESET } from "../store/constants/productConstants";
@@ -65,7 +65,7 @@ const ProductListScreen = () => {
   };
 
   return (
-    <>
+    <Container>
       <Row className="align-items-center">
         <Col>
           <h1>Products</h1>
@@ -77,7 +77,7 @@ const ProductListScreen = () => {
         </Col>
       </Row>
 
-      {loadingDelete && <Loader />}
+      {loadingDelete && !loading && <Loader />}
       {errorDelete && <Message variant="danger">{errorDelete}</Message>}
 
       {loadingCreate && <Loader />}
@@ -130,7 +130,7 @@ const ProductListScreen = () => {
           <Paginate pages={pages} page={page} isAdmin={true} />
         </>
       )}
-    </>
+    </Container>
   );
 };
 

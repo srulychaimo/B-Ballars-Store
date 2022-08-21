@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./theme/bootstrap.min.css";
-import "./index.css";
+import "./style/index.css";
+import "./style/carousel.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";

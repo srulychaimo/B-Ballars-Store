@@ -4,6 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import productsRouter from "./routes/productRoutes.js";
 import usersRouter from "./routes/userRoutes.js";
+import passwordResetRouter from "./routes/passwordReset.js";
 import uploadRouter from "./routes/uploadRoutes.js";
 import orderRouter from "./routes/orderRoutes.js";
 import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
@@ -22,6 +23,8 @@ app.use("/api/products", productsRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/upload", uploadRouter);
+app.use("/api/upload", uploadRouter);
+app.use("/api/password-reset", passwordResetRouter);
 
 app.get("/api/config/paypal", (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID);

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../common/Loader";
 import Message from "../common/Message";
-import { Button, Table } from "react-bootstrap";
+import { Button, Container, Table } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { listOrders } from "../store/actions/orderActions";
@@ -18,7 +18,7 @@ const OrderListScreen = () => {
   }, [dispatch, navigate, userInfo]);
 
   return (
-    <>
+    <Container>
       <h1>Orders</h1>
 
       {loading ? (
@@ -71,7 +71,7 @@ const OrderListScreen = () => {
           </tbody>
         </Table>
       )}
-    </>
+    </Container>
   );
 };
 

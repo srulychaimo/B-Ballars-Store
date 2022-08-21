@@ -6,3 +6,12 @@ footer p {
 footer span {
   line-height: 3;
 }
+
+footer i,
+footer a {
+  color: white;
+}
+
+footer a:hover {
+  color: aliceblue;
+}

@@ -14,6 +14,12 @@ import {
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
   USER_LOGOUT,
+  USER_PASSWORD_RESET_EMAIL_FAIL,
+  USER_PASSWORD_RESET_EMAIL_REQUEST,
+  USER_PASSWORD_RESET_EMAIL_SUCCESS,
+  USER_PASSWORD_RESET_FAIL,
+  USER_PASSWORD_RESET_REQUEST,
+  USER_PASSWORD_RESET_SUCCESS,
   USER_REGISTER_FAIL,
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
@@ -267,6 +273,46 @@ export const updateUser = (user) => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: USER_UPDATE_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const resetPasswordEmail = (email) => async (dispatch) => {
+  try {
+    dispatch({
+      type: USER_PASSWORD_RESET_EMAIL_REQUEST,
+    });
+
+    await httpService.post("/api/password-reset", email);
+
+    dispatch({ type: USER_PASSWORD_RESET_EMAIL_SUCCESS });
+  } catch (error) {
+    dispatch({
+      type: USER_PASSWORD_RESET_EMAIL_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const resetPassword = (password, userId, token) => async (dispatch) => {
+  try {
+    dispatch({
+      type: USER_PASSWORD_RESET_REQUEST,
+    });
+
+    await httpService.post(`/api/password-reset/${userId}/${token}`, password);
+
+    dispatch({ type: USER_PASSWORD_RESET_SUCCESS });
+  } catch (error) {
+    dispatch({
+      type: USER_PASSWORD_RESET_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

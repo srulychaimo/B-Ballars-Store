@@ -7,3 +7,12 @@ Content-Type: application/json
   "email": "aidy@aidy.com",
   "password": "123456Aa@"
 }
+
+
+###
+POST {{{local}}}/api/password-reset
+Content-Type: application/json
+
+{
+  "email": "yyc26478@gmail.com"
+}

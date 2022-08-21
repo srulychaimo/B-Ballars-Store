@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteUser, listUsers } from "../store/actions/userActions";
 import Loader from "../common/Loader";
 import Message from "../common/Message";
-import { Button, Table } from "react-bootstrap";
+import { Button, Container, Table } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
 const UserListScreen = () => {
@@ -22,7 +22,7 @@ const UserListScreen = () => {
   };
 
   return (
-    <>
+    <Container>
       <h1>Users</h1>
 
       {loading ? (
@@ -74,7 +74,7 @@ const UserListScreen = () => {
           </tbody>
         </Table>
       )}
-    </>
+    </Container>
   );
 };
 

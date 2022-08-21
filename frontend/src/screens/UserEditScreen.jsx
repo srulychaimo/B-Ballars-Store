@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import { useEffect } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Container, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import FormContainer from "../components/FormContainer";
@@ -70,51 +70,53 @@ const UserEditScreen = () => {
 
   return (
     <>
-      <Link to="/admin/userlist" className="btn btn-light my-3">
-        Go Back
-      </Link>
+      <Container>
+        <Link to="/admin/userlist" className="btn btn-light my-3">
+          Go Back
+        </Link>
 
-      <FormContainer>
-        <h1>Edit User</h1>
-        {loadingUpdate && <Loader />}
-        {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
-        {loading ? (
-          <Loader />
-        ) : error ? (
-          <Message variant="danger">{error}</Message>
-        ) : (
-          <Form noValidate autoComplete="off" onSubmit={form.handleSubmit}>
-            <Input
-              {...form.getFieldProps("name")}
-              error={form.touched.name && form.errors.name}
-              label="Name"
-              placeholder="Enter Name"
-            />
-            <Input
-              {...form.getFieldProps("email")}
-              error={form.touched.email && form.errors.email}
-              label="Email Address"
-              placeholder="Enter Email Address"
-            />
+        <FormContainer>
+          <h1>Edit User</h1>
+          {loadingUpdate && <Loader />}
+          {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
+          {loading ? (
+            <Loader />
+          ) : error ? (
+            <Message variant="danger">{error}</Message>
+          ) : (
+            <Form noValidate autoComplete="off" onSubmit={form.handleSubmit}>
+              <Input
+                {...form.getFieldProps("name")}
+                error={form.touched.name && form.errors.name}
+                label="Name"
+                placeholder="Enter Name"
+              />
+              <Input
+                {...form.getFieldProps("email")}
+                error={form.touched.email && form.errors.email}
+                label="Email Address"
+                placeholder="Enter Email Address"
+              />
 
-            <Form.Check
-              type="checkbox"
-              label="Is Admin"
-              checked={form.values.isAdmin}
-              {...form.getFieldProps("isAdmin")}
-            ></Form.Check>
+              <Form.Check
+                type="checkbox"
+                label="Is Admin"
+                checked={form.values.isAdmin}
+                {...form.getFieldProps("isAdmin")}
+              ></Form.Check>
 
-            <Button
-              type="submit"
-              variant="primary"
-              className="my-3"
-              disabled={!form.isValid}
-            >
-              Update
-            </Button>
-          </Form>
-        )}
-      </FormContainer>
+              <Button
+                type="submit"
+                variant="primary"
+                className="my-3"
+                disabled={!form.isValid}
+              >
+                Update
+              </Button>
+            </Form>
+          )}
+        </FormContainer>
+      </Container>
     </>
   );
 };

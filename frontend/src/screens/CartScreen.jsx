@@ -6,6 +6,7 @@ import {
   Button,
   Card,
   Col,
+  Container,
   FormControl,
   Image,
   ListGroup,
@@ -41,7 +42,7 @@ const CartScreen = () => {
   };
 
   return (
-    <>
+    <Container>
       <Meta title="Jersey Store - Cart" />
       <Row>
         <Col md={12} lg={8}>
@@ -54,7 +55,7 @@ const CartScreen = () => {
             <ListGroup>
               {cartItems.map((item) => (
                 <ListGroupItem key={item.product}>
-                  <Row>
+                  <Row className="align-items-center">
                     <Col md={2}>
                       <Image src={item.image} alt={item.name} fluid rounded />
                     </Col>
@@ -63,6 +64,7 @@ const CartScreen = () => {
                         {item.name}
                       </Link>
                     </Col>
+
                     <Col md={2}>${item.price}</Col>
                     <Col md={2}>
                       <FormControl
@@ -119,11 +121,18 @@ const CartScreen = () => {
                   Proceed To Checkout
                 </Button>
               </ListGroupItem>
+              <ListGroupItem>
+                <Link to="/">
+                  <Button type="button" className="btn-block" variant="info">
+                    Continue Shopping
+                  </Button>
+                </Link>
+              </ListGroupItem>
             </ListGroup>
           </Card>
         </Col>
       </Row>
-    </>
+    </Container>
   );
 };
 
