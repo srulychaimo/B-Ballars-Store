@@ -106,7 +106,7 @@ const ProfileScreen = () => {
 
   return (
     <>
-      <Meta title="Jersey Store - Profile" />
+      <Meta title="B-Ballers Store - Profile" />
       <Container>
         <Row>
           <Col md={4} lg={3}>

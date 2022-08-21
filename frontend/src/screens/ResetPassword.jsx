@@ -68,7 +68,7 @@ const ResetPassword = () => {
 
   return (
     <>
-      <Meta title="Reset Password" />
+      <Meta title="B-Ballers Store - Reset Password" />
       <FormContainer>
         <h1>Choose your new password</h1>
 

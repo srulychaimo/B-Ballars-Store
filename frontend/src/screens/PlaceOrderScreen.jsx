@@ -58,7 +58,7 @@ const PlaceOrderScreen = () => {
 
   return (
     <>
-      <Meta title="Jersey Store - Placeorder" />
+      <Meta title="B-Ballers Store - Placeorder" />
       <Container>
         <CheckoutSteps step1 step2 step3 step4 />
         <Row>

@@ -81,7 +81,7 @@ const RegisterScreen = () => {
 
   return (
     <>
-      <Meta title="Jersey Store - Sign up" />
+      <Meta title="B-Ballers Store - Sign up" />
 
       <FormContainer>
         <h1>Sign Up</h1>

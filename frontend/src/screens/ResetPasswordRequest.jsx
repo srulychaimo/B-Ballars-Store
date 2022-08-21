@@ -45,7 +45,7 @@ const ResetPasswordRequest = () => {
 
   return (
     <>
-      <Meta title="Jersey Store - Reset Password Request" />
+      <Meta title="B-Ballers Store - Reset Password Request" />
       <FormContainer>
         <h1>Enter your email</h1>
         <p>U will receive a URL to change your password</p>

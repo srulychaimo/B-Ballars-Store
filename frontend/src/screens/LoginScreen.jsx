@@ -64,7 +64,7 @@ const LoginScreen = () => {
 
   return (
     <>
-      <Meta title="Jersey Store - Sign in" />
+      <Meta title="B-Ballers Store - Sign in" />
       <FormContainer>
         <h1>Sign In</h1>
 

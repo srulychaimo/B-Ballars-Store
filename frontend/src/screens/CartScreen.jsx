@@ -45,7 +45,7 @@ const CartScreen = () => {
 
   return (
     <Container>
-      <Meta title="Jersey Store - Cart" />
+      <Meta title="B-Ballers Store - Cart" />
       <Row>
         <Col md={12} lg={8}>
           <h1>Shopping Cart</h1>

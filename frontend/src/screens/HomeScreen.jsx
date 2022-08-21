@@ -32,7 +32,7 @@ const HomeScreen = () => {
 
   return (
     <>
-      <Meta title="Jersey Store - Home" />
+      <Meta title="B-Ballers Store - Home" />
       {!keyword ? (
         <>
           <ProductCarousel />

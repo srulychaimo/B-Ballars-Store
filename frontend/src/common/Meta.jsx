@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
 
-const Meta = ({ title = "Welcome To NBA shop", description, keywords }) => {
+const Meta = ({ title = "B-Ballers Jersey Store", description, keywords }) => {
   return (
     <Helmet>
       <title>{title}</title>

@@ -23,7 +23,7 @@ const TeamScreen = () => {
   }, [team, dispatch]);
   return (
     <>
-      <Meta title={`Jersey Store - Team ${team}`} />
+      <Meta title={`B-Ballers Store - Team ${team}`} />
       <Container>
         <h1>{filteredTeam.name}</h1>
       </Container>

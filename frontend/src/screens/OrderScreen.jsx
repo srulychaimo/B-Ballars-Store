@@ -93,7 +93,7 @@ const OrderScreen = () => {
     <Message variant="danger">{error}</Message>
   ) : (
     <>
-      <Meta title="Jersey Store - Order" />
+      <Meta title="B-Ballers Store - Order" />
       <Container>
         <h1>Order {order._id}</h1>
 

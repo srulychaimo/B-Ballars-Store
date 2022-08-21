@@ -10,7 +10,7 @@ const AboutScreen = () => {
   return (
     <Container>
       <div className="about text-center">
-        <Meta title="Jersey Store - About Us" />
+        <Meta title="B-Ballers Store - About Us" />
 
         <h1>Welcome to the NBA Jerseys Merch Store</h1>
         <p>Created with &#10084; by Daniel Tishenko and Israel Chaimowitz</p>

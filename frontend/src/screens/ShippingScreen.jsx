@@ -28,7 +28,7 @@ const ShippingScreen = () => {
 
   return (
     <>
-      <Meta title="Jersey Store - Shipping" />
+      <Meta title="B-Ballers Store - Shipping" />
 
       <FormContainer>
         <CheckoutSteps step1 step2 />

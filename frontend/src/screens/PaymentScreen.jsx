@@ -34,7 +34,7 @@ const PaymentScreen = () => {
   });
   return (
     <>
-      <Meta title="Jersey Store - Payment" />
+      <Meta title="B-Ballers Store - Payment" />
       <FormContainer>
         <CheckoutSteps step1 step2 step3 />
         <h1>Payment Method</h1>
