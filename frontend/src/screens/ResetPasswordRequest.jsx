@@ -2,18 +2,16 @@ import { useFormik } from "formik";
 import { useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import FormContainer from "../components/FormContainer";
 import Input from "../common/Input";
-
-import { login, resetPasswordEmail } from "../store/actions/userActions";
+import { resetPasswordEmail } from "../store/actions/userActions";
 import Joi from "joi";
 import validateFormikUsingJoi from "../utils/validateFormikUsingJoi";
 import { emailRegex, emailRegexError } from "../utils/regex";
 import Meta from "../common/Meta";
 import Loader from "../common/Loader";
 import Message from "../common/Message";
-import { toast } from "react-toastify";
+import { toastifySuccess } from "../utils/toastify";
 
 const ResetPasswordRequest = () => {
   const dispatch = useDispatch();
@@ -41,15 +39,7 @@ const ResetPasswordRequest = () => {
 
   useEffect(() => {
     if (success) {
-      toast.success("Email was successfully send!", {
-        position: "top-center",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      toastifySuccess("Email was successfully send!");
     }
   }, [success]);
 

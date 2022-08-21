@@ -16,6 +16,7 @@ import {
 import Message from "../common/Message";
 import { Link } from "react-router-dom";
 import Meta from "../common/Meta";
+import { toastifySuccess } from "../utils/toastify";
 
 const CartScreen = () => {
   const navigate = useNavigate();
@@ -35,6 +36,7 @@ const CartScreen = () => {
 
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
+    toastifySuccess("Product removed from cart!");
   };
 
   const checkoutHandler = () => {

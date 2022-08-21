@@ -25,6 +25,7 @@ import { useNavigate } from "react-router-dom";
 import { PRODUCT_CREATE_REVIEW_RESET } from "../store/constants/productConstants";
 import Meta from "../common/Meta";
 import { storeSizes } from "../utils/storeSizes";
+import { toastifySuccess } from "../utils/toastify";
 
 const ProductScreen = () => {
   const [qty, setQty] = useState(1);
@@ -54,7 +55,7 @@ const ProductScreen = () => {
 
   useEffect(() => {
     if (successProductReview) {
-      alert("Review Submitted!");
+      toastifySuccess("Review Submitted!");
       form.resetForm();
       dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
     }
@@ -62,6 +63,7 @@ const ProductScreen = () => {
   }, [dispatch, id, successProductReview]);
 
   const addToCartHandler = () => {
+    toastifySuccess("Product added to cart!");
     navigate(`/cart/${id}?qty=${qty}&size=${size}`);
   };
 

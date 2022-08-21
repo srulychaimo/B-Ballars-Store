@@ -18,6 +18,7 @@ import { priceCalculation } from "../store/calculatePrice/calculation";
 import { CART_RESET_ITEM } from "../store/constants/cartConstants";
 import { ORDER_CREATE_RESET } from "../store/constants/orderConstants";
 import Meta from "../common/Meta";
+import { toastifySuccess } from "../utils/toastify";
 
 const PlaceOrderScreen = () => {
   const dispatch = useDispatch();
@@ -52,6 +53,7 @@ const PlaceOrderScreen = () => {
         totalPrice: totalPrice,
       })
     );
+    toastifySuccess("Order created!");
   };
 
   return (

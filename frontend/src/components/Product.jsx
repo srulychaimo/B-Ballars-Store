@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
   return (
-    <Card className="my-3 p-3 rounded product-card grow">
+    <Card className="my-3 p-3 rounded  grow">
       <Link to={`/teams/${product.team}/${product._id}`}>
         <Card.Img src={product.image} variant="top" />
       </Link>

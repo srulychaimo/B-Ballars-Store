@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import FormContainer from "../components/FormContainer";
 import Input from "../common/Input";
-
 import { resetPassword } from "../store/actions/userActions";
 import Joi from "joi";
 import validateFormikUsingJoi from "../utils/validateFormikUsingJoi";
@@ -17,7 +16,7 @@ import {
 import Meta from "../common/Meta";
 import Loader from "../common/Loader";
 import Message from "../common/Message";
-import { toast } from "react-toastify";
+import { toastifySuccess } from "../utils/toastify";
 
 const ResetPassword = () => {
   const dispatch = useDispatch();
@@ -62,15 +61,7 @@ const ResetPassword = () => {
 
   useEffect(() => {
     if (success) {
-      toast.success("Password updated!", {
-        position: "top-center",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      toastifySuccess("Password updated!");
       navigate("/login");
     }
   }, [success, navigate]);

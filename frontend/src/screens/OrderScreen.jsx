@@ -26,6 +26,7 @@ import {
   ORDER_PAY_RESET,
 } from "../store/constants/orderConstants";
 import Meta from "../common/Meta";
+import { toastifySuccess } from "../utils/toastify";
 
 const OrderScreen = () => {
   const [sdkReady, setSdkReady] = useState(false);
@@ -77,12 +78,13 @@ const OrderScreen = () => {
   }, [order, orderId, dispatch, successPay, successDeliver]);
 
   const successPaymentHandler = (paymentResult) => {
-    console.log(paymentResult);
     dispatch(payOrder(orderId, paymentResult));
+    toastifySuccess("Order is paid!");
   };
 
   const deliverHandler = () => {
     dispatch(deliverOrder(order));
+    toastifySuccess("Order is delivered!");
   };
 
   return loading ? (

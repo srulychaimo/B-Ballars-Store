@@ -23,10 +23,10 @@ import {
 } from "../utils/regex";
 import { LinkContainer } from "react-router-bootstrap";
 import Meta from "../common/Meta";
+import { toastifySuccess } from "../utils/toastify";
 
 const ProfileScreen = () => {
   const [message, setMessage] = useState(null);
-  const [updateSuccess, setUpdateSuccess] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -81,11 +81,7 @@ const ProfileScreen = () => {
           password: values.password,
         })
       );
-      setUpdateSuccess(true);
-
-      setTimeout(() => {
-        setUpdateSuccess(false);
-      }, 3000);
+      toastifySuccess("Profile updated!");
     },
   });
 
@@ -119,9 +115,6 @@ const ProfileScreen = () => {
             {loading && <Loader />}
             {message && <Message variant="danger">{message}</Message>}
             {error && <Message variant="danger">{error}</Message>}
-            {updateSuccess && (
-              <Message variant="success">Profile Updated</Message>
-            )}
 
             <Form onSubmit={form.handleSubmit}>
               <Input

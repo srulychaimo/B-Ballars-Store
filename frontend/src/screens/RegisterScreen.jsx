@@ -18,6 +18,7 @@ import {
   passwordRegexError,
 } from "../utils/regex";
 import Meta from "../common/Meta";
+import { toastifySuccess } from "../utils/toastify";
 
 const RegisterScreen = () => {
   const [searchParams] = useSearchParams();
@@ -34,6 +35,7 @@ const RegisterScreen = () => {
 
   useEffect(() => {
     if (userInfo) {
+      toastifySuccess("Registered successfully");
       navigate(redirect);
     }
   }, [redirect, userInfo, navigate]);

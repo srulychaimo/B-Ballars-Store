@@ -26,6 +26,12 @@ const AboutScreen = () => {
           Disclaimer: All payments using PayPal method are <span>fictive</span>
           no actual charge nor delivery will be made!
         </h3>
+        <p className="mb-0">
+          You will not be able to use your personal PayPal account to pay.
+        </p>
+        <h3 className="mb-0">Use the following paypal credentials to pay:</h3>
+        <p>Email: bbolerIsrael@gmail.com</p>
+        <p>Password: 12345678A@</p>
 
         <div className="teams">
           <h3>Our featured teams:</h3>
