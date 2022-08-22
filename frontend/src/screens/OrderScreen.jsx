@@ -120,7 +120,7 @@ const OrderScreen = () => {
                 </p>
                 {order.isDelivered ? (
                   <Message variant="success">
-                    Delivered on {order.deliveredAt}
+                    Delivered on {new Date(order.deliveredAt).toString()}
                   </Message>
                 ) : (
                   <Message variant="danger">Not Delivered</Message>
@@ -130,7 +130,9 @@ const OrderScreen = () => {
                 <h2>Payment method</h2>
                 <p>Method: {order.paymentMethod}</p>
                 {order.isPaid ? (
-                  <Message variant="success">Paid on {order.paidAt}</Message>
+                  <Message variant="success">
+                    Paid on {new Date(order.paidAt).toString()}
+                  </Message>
                 ) : (
                   <Message variant="danger">Not Paid</Message>
                 )}
