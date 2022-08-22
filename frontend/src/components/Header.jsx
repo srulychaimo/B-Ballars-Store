@@ -31,7 +31,7 @@ const Header = () => {
               <Nav.Link>About</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/teams/hardwood-classics">
-              <Nav.Link>Hardwood Classics</Nav.Link>
+              <Nav.Link>Hardwood-Classics</Nav.Link>
             </LinkContainer>
             <NavDropdown title="teams" id="teams">
               {filteredTeams.map((team) => (

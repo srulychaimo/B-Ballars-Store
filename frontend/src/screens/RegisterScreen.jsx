@@ -35,7 +35,7 @@ const RegisterScreen = () => {
 
   useEffect(() => {
     if (userInfo) {
-      toastifySuccess("Registered successfully");
+      toastifySuccess("Registered & Logged successfully");
       navigate(redirect);
     }
   }, [redirect, userInfo, navigate]);

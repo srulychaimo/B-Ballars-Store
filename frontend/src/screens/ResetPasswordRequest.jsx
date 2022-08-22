@@ -48,7 +48,7 @@ const ResetPasswordRequest = () => {
       <Meta title="B-Ballers Store - Reset Password Request" />
       <FormContainer>
         <h1>Enter your email</h1>
-        <p>U will receive a URL to change your password</p>
+        <p>You will receive a URL to change your password</p>
 
         {error && <Message variant="danger">{error}</Message>}
         {loading && <Loader />}
@@ -67,7 +67,7 @@ const ResetPasswordRequest = () => {
             className="my-3"
             disabled={!form.isValid}
           >
-            Send email
+            Send Email
           </Button>
         </Form>
       </FormContainer>

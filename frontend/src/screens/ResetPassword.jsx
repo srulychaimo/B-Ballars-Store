@@ -79,8 +79,8 @@ const ResetPassword = () => {
           <Input
             {...form.getFieldProps("password")}
             error={form.touched.password && form.errors.password}
-            label="Password"
-            placeholder="Enter Password"
+            label="New Password"
+            placeholder="Enter New Password"
             type="password"
           />
           <Input
