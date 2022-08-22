@@ -61,7 +61,7 @@ const HomeScreen = () => {
         </Container>
       ) : products.length ? (
         <Container>
-          <h1>latest products</h1>
+          <h1>Our Collection:</h1>
           <Row className="mt-5 mb-1">
             <Col>Sort By:</Col>
           </Row>
