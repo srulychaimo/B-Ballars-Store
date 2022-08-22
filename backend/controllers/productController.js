@@ -14,11 +14,11 @@ const getProducts = asyncHandler(async (req, res) => {
         name: {
           $regex: req.query.keyword,
           $options: "i",
-        } && {
-          description: {
-            $regex: req.query.keyword,
-            $options: "i",
-          },
+        },
+      } && {
+        description: {
+          $regex: req.query.keyword,
+          $options: "i",
         },
       }
     : {};
