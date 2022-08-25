@@ -35,15 +35,18 @@ const HomeScreen = () => {
       <Meta title="B-Ballers Store - Home" />
       {!keyword ? (
         <>
-          <ProductCarousel />
-          <Link to="/teams/hardwood-classics">
-            <Image
-              src="https://store.nba.com/content/ws/all/c4d32bbb-2e16-439d-b5a8-40ae6607b11c__1600X617.jpg"
-              alt="main image"
-              className="mt-4 vw-100"
-              fluid
-            />
-          </Link>
+          <Container>
+            <h2>our top rated products</h2>
+            <ProductCarousel />
+            <Link to="/teams/hardwood-classics">
+              <Image
+                src="https://store.nba.com/content/ws/all/c4d32bbb-2e16-439d-b5a8-40ae6607b11c__1600X617.jpg"
+                alt="main image"
+                className="mt-4 vw-100"
+                fluid
+              />
+            </Link>
+          </Container>
         </>
       ) : (
         <Container>

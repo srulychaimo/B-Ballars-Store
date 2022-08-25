@@ -26,16 +26,14 @@ const TeamScreen = () => {
       <Meta title={`B-Ballers Store - Team ${team}`} />
       <Container>
         <h1>{filteredTeam.name}</h1>
-      </Container>
 
-      <Image
-        src={filteredTeam.banner}
-        alt={filteredTeam.name}
-        fluid
-        className="vw-100"
-      ></Image>
+        <Image
+          src={filteredTeam.banner}
+          alt={filteredTeam.name}
+          fluid
+          className="vw-100"
+        ></Image>
 
-      <Container>
         <Row className="mt-5 mb-1">
           <Col>Sort By:</Col>
         </Row>

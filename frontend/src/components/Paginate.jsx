@@ -4,7 +4,7 @@ import { LinkContainer } from "react-router-bootstrap";
 const Paginate = ({ pages, page, isAdmin = false, keyword = "" }) => {
   return (
     pages > 1 && (
-      <Pagination className="d-flex justify-content-center">
+      <Pagination className="d-flex justify-content-center py-3">
         {[...Array(pages).keys()].map((x) => (
           <LinkContainer
             key={x + 1}
