@@ -1,6 +1,6 @@
 # B-Ballers Jersey Store
 
-eCommerce project utilizing MERN stack and Redux.
+e Commerce project utilizing MERN stack and Redux.
 
 # Website
 
