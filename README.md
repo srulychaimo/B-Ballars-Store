@@ -1,15 +1,12 @@
-B-Ballers Jersey Store
-============================
+# B-Ballers Jersey Store
 
 eCommerce project utilizing MERN stack and Redux.
 
-Website
-============================
+# Website
 
-https://b-ballers.herokuapp.com/
+https://b-ballers.onrender.com/
 
-Features
-============================
+# Features
 
 - User registration and login with validations on both ends.
 - Reset password feature.
@@ -23,8 +20,8 @@ Features
 - Embedded PayPal Sandbox method.
 - Admin management and supervision on the users, products and orders.
 
-Utilities
-============================
+# Utilities
+
 .env file that contains essential variables for the project
 
 ```javascript
